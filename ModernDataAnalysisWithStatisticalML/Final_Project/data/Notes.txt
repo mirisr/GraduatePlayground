@@ -1,0 +1,20 @@
+Notes:
+
+Day 0
+Tested using RANSAC from SKLearn
+Created program to create custom datasets
+Tried using Expectation Maximazation to try to find clusters, to get the ideas of where buildings are, but we thought that it wouldn't be robust enough to handle any new map
+decided to do a generative model.
+Decided that our problem was comparable to LDA model
+We drew our first draft of our generative model 
+We needed a g to respresent the point to polygon connection through q ( this went away.. we figured they were dependent either way)
+
+
+Day 1
+Figured out the C matrix cared about frequencies and maybe our model didn't care about number of points in a line... but we realized we do care about the number of point in a polygon that belong to a dirichlet distribution of line segments . 
+We thought about using EM about clustering lines into polygons. However.. That would work if our model did points into polygons. 
+To create our dirchlet of which points most likely belong to a line, we decided to use RANSAC to tell us how close (weights) each point was to the line it created. We will create RANSACs based on which points are assigned to a line. 
+
+
+First we should do EM to try to get points into a polygon
+then we do the gibbs sampling
